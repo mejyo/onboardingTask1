@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MarsQA_1.SpecflowPages.Pages;
+using NUnit.Framework;
+using System;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace MarsQA_1.Feature
@@ -6,76 +9,66 @@ namespace MarsQA_1.Feature
     [Binding]
     public class EducationSteps
     {
-        private readonly ScenarioContext _scenarioContext;
-
-        public EducationSteps(ScenarioContext scenarioContext)
-        {
-            _scenarioContext = scenarioContext;
-        }
+        Education education;
         [Given(@"I am on Home page")]
         public void GivenIAmOnHomePage()
         {
-            _scenarioContext.Set("");
+            education = new Education();
         }
-        
-        [When(@"I select (.*)")]
-        public void WhenISelect(string p0)
+
+        [When(@"I select Education")]
+        public void WhenISelectEducation()
         {
-            _scenarioContext.Set("");
+            education.EducationButtonClick();
         }
-        
+
         [When(@"I click On Add New button")]
         public void WhenIClickOnAddNewButton()
         {
-            _scenarioContext.Set("");
+            education.AddNewButtonClick();
         }
-        
-        [When(@"I expect that the fields RMIT, Canada, B\.A, abc, (.*) displays on the page")]
-        public void WhenIExpectThatTheFieldsRMITCanadaB_AAbcDisplaysOnThePage(int p0)
+
+        [When(@"I entered all given values (.*), (.*), (.*), (.*), (.*)")]
+        public void WhenIEnteredAllGivenValues(String universityName, String country, String title, String degree, String year)
         {
-            _scenarioContext.Set("");
+            education.EnteredGivenValuesForAdd(universityName, country, title, degree, year);
         }
-        
+
         [When(@"I click On Add button")]
         public void WhenIClickOnAddButton()
         {
-            _scenarioContext.Set("");
+            education.AddButtonClick();
         }
-        
-        [When(@"I expect that the fields CMRIT, India, M\.A, abc, (.*) displays on the page")]
-        public void WhenIExpectThatTheFieldsCMRITIndiaM_AAbcDisplaysOnThePage(int p0)
+
+        [When(@"I click On Edit Icon")]
+        public void WhenIClickOnEditIcon()
         {
-            _scenarioContext.Set("");
+            education.EditIconClick();
         }
-        
+
+        [When(@"I updated all given values (.*), (.*), (.*), (.*), (.*)")]
+        public void WhenIUpdatedAllGivenValues(String universityName, String country, String title, String degree, String year)
+        {
+            education.EnteredGivenValuesForUpdate(universityName, country, title, degree, year);
+        }
+
         [When(@"I click On Update button")]
         public void WhenIClickOnUpdateButton()
         {
-            _scenarioContext.Set("");
+            education.UpdateButtonClick();
         }
-        
-        [When(@"I click on delete icon")]
+
+        [When(@"I click on Delete icon")]
         public void WhenIClickOnDeleteIcon()
         {
-            _scenarioContext.Set("");
+            education.DeleteButtonClick();
         }
-        
-        [Then(@"I expect the Education has been added should be displyed on the screen")]
-        public void ThenIExpectTheEducationHasBeenAddedShouldBeDisplyedOnTheScreen()
+
+        [Then(@"I expect the (.*) should be displyed on the screen")]
+        public void ThenIExpectTheShouldBeDisplyedOnTheSreen(String message)
         {
-            _scenarioContext.Set("");
-        }
-        
-        [Then(@"I expect the Education has been updated should be displyed on the screen")]
-        public void ThenIExpectTheEducationHasBeenUpdatedShouldBeDisplyedOnTheScreen()
-        {
-            _scenarioContext.Set("");
-        }
-        
-        [Then(@"I expect the Education entry successfully removed should be displyed on the screen")]
-        public void ThenIExpectTheEducationEntrySuccessfullyRemovedShouldBeDisplyedOnTheScreen()
-        {
-            _scenarioContext.Set("");
+            String actualMessage = education.getActualMessage();
+            Assert.AreEqual(message, actualMessage);
         }
     }
 }

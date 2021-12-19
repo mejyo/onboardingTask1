@@ -5,38 +5,38 @@
 	
 
 @mytag
- Scenario Outline: Adding details to education
+ Scenario Outline: 1Adding details to education
     Given I am on Home page
-	When I select <Education>                                                
-	And I click On Add New button 
-    And I expect that the fields <UniversityName>, <Country>, <Title>, <Degree>, <Year> displays on the page
+	When I select <Education>                                    
+	And I click On Add New button
+	And  I entered all given values <UniversityName>, <Country>, <Title>, <Degree>, <Year>
 	And I click On Add button
 	Then I expect the <Message> should be displyed on the screen
 
 	Examples:  
-	| UniversityName | Country | Title | Degree | Year | Message                   |
-	| RMIT           | Canada  | B.A   | abc    | 2021 | Education has been added  |                                     
+	| Education | UniversityName | Country | Title | Degree | Year | Message                   |
+	| Education | RMIT           | Canada  | B.A   | abc    | 2021 | Education has been added  |                                     
 	
 	
-Scenario Outline: Updating profile education details
+Scenario Outline: 2Updating profile education details
     Given I am on Home page
-	When I select <Education>                                                   
-	And I click On Add New button 
-    And I expect that the fields <UniversityName>, <Country>, <Title>, <Degree>, <Year> displays on the page
+	When I select <Education>                               
+	And I click On Edit Icon 
+    And I updated all given values <UniversityName>, <Country>, <Title>, <Degree>, <Year>
 	And I click On Update button
 	Then I expect the <Message> should be displyed on the screen
 
 	Examples:  
-	| UniversityName | Country | Title | Degree | Year |  Message                    |
-	| CMRIT          | India   | M.A   | abc    | 2020 |  Education has been updated |
+	| Education | UniversityName | Country | Title | Degree | Year | Message                    |
+	| Education | CMRIT           | India  | M.A   | abc    | 2020 | Education as been updated  |
 
 
-Scenario Outline: Deleting profile education details
+Scenario Outline: 3Deleting profile education details
 	Given I am on Home page
-	When I select <Education>                                              
-	And I click on delete icon
+	When I select <Education>                         
+	And I click on Delete icon
 	Then I expect the <Message> should be displyed on the screen
 
 	Examples:  
-	 | Message                              |
-	 | Education entry successfully removed |
+	 | Education | Message								|
+	 | Education | Education entry successfully removed |
