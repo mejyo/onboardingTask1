@@ -20,6 +20,6 @@ namespace MarsQA_1.Helpers
         public static string ReportsPath = CurrentPath + @"MarsQA-1\TestReports\Test_files\" + "TestRunReport.html";
 
         //ReportXML Path
-        public static string ReportXMLPath = CurrentPath + @"MarsQA-1\TestReports" + "ExtentRepot_Config.xml";
+        public static string ReportXMLPath = CurrentPath + @"MarsQA-1\TestReports" + "ExtentReport_Config.xml";
     }
 }
