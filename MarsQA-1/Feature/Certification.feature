@@ -13,23 +13,34 @@
 	Then I expect the <Message> should be displyed on the screen
 
 	Examples:  
-	| Certification  | From | Year   |  Message                       |
-	| abcd           | abcd  | 2020 | Certification has been updated  |
+	| Certification  | From  | Year   |  Message                                                                   |
+	| abc            | abcd  | 2020   | abc has been added to your certification                                    |
+	| abc            | abcd  | 2020   | This information is already exist                                           |
+	|                |       |        | Please enter Certification Name, Certtification From and Certification Year |
+	| abc            |       |        | Please enter Certification Name, Certtification From and Certification Year |
+	| abc            |       |        | Please enter Certification Name, Certtification From and Certification Year |
+	|                | abcd  |        | Please enter Certification Name, Certtification From and Certification Year |
+	|                |       | 2020   | Please enter Certification Name, Certtification From and Certification Year |
 	
 	
 Scenario Outline: Updating profile Certification details
     Given I am on Home page
 	When I select <Certification>                                                   
 	And I click On Edit button 
-        And I expect that the fields <Certification>, <From>, <Year> displays on the page
+    And I expect that the fields <Certification>, <From>, <Year> displays on the page
 	And I click On Update button
 	Then I expect the <Message> should be displyed on the screen
 
 
 	Examples:  
-	| Certification | From | Year   |  Message                              |
-	| Best Employee | abc  | 2020   |  Certification has been updated       |
-	| Best Employee | abc  | 2020   |  The information is already exist     |
+	| Certification  | From | Year   |  Message                                                                     |
+	| Best Employee  | abc  | 2020   |  Best Employee has been updated to your certification                        |
+	| Best Employee  | abc  | 2020   |  This information is already exist                                           |
+	|                |      |        |	Please enter Certification Name, Certtification From and Certification Year |
+	|                | abc  |        |	Please enter Certification Name, Certtification From and Certification Year |
+	|                |      | 2020   |	Please enter Certification Name, Certtification From and Certification Year |
+	| Best Employee  |      |        |	Please enter Certification Name, Certtification From and Certification Year |
+	| Best Employee  |      |        |	Please enter Certification Name, Certtification From and Certification Year |
 
 
 Scenario Outline: Deleting profile Certification details
@@ -39,5 +50,5 @@ Scenario Outline: Deleting profile Certification details
 	Then I expect the <Message> should be displyed on the screen
 
 	Examples:  
-	 | Message                              |
+	 | Message                                  |
 	 | Certification entry successfully removed |

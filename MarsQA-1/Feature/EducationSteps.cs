@@ -10,6 +10,7 @@ namespace MarsQA_1.Feature
     public class EducationSteps
     {
         Education education;
+        Boolean allFieldsError = false;
         [Given(@"I am on Home page")]
         public void GivenIAmOnHomePage()
         {
@@ -31,6 +32,22 @@ namespace MarsQA_1.Feature
         [When(@"I entered all given values (.*), (.*), (.*), (.*), (.*)")]
         public void WhenIEnteredAllGivenValues(String universityName, String country, String title, String degree, String year)
         {
+            
+            System.Console.Out.WriteLine("Test universityName" + universityName);
+            System.Console.Out.WriteLine("Test country" + country);
+            System.Console.Out.WriteLine("Test title" + title);
+            System.Console.Out.WriteLine("Test degree" + degree);
+
+            if (universityName == "" || country == "" || title == "" || degree == "" || year == "")
+            {
+                System.Console.Out.WriteLine("ERROR:::");
+                allFieldsError = true;
+            } else
+            {
+                System.Console.Out.WriteLine("SUCCESS");
+                allFieldsError = false;
+            }
+
             education.EnteredGivenValuesForAdd(universityName, country, title, degree, year);
         }
 
@@ -49,6 +66,16 @@ namespace MarsQA_1.Feature
         [When(@"I updated all given values (.*), (.*), (.*), (.*), (.*)")]
         public void WhenIUpdatedAllGivenValues(String universityName, String country, String title, String degree, String year)
         {
+            if (universityName == "" || country == "" || title == "" || degree == "" || year == "")
+            {
+                System.Console.Out.WriteLine("ERROR:::");
+                allFieldsError = true;
+            }
+            else
+            {
+                System.Console.Out.WriteLine("SUCCESS");
+                allFieldsError = false;
+            }
             education.EnteredGivenValuesForUpdate(universityName, country, title, degree, year);
         }
 
@@ -67,7 +94,8 @@ namespace MarsQA_1.Feature
         [Then(@"I expect the (.*) should be displyed on the screen")]
         public void ThenIExpectTheShouldBeDisplyedOnTheSreen(String message)
         {
-            String actualMessage = education.getActualMessage();
+            System.Console.Out.WriteLine("allFieldsError before use:::" + allFieldsError);
+            String actualMessage = education.getActualMessage(allFieldsError);
             Assert.AreEqual(message, actualMessage);
         }
     }

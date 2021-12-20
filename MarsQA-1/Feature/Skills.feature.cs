@@ -78,6 +78,10 @@ namespace MarsQA_1.Feature
         [NUnit.Framework.DescriptionAttribute("Adding details to Skills")]
         [NUnit.Framework.CategoryAttribute("mytag")]
         [NUnit.Framework.TestCaseAttribute("abc", "Beginner", "abc has been added to your skills", null)]
+        [NUnit.Framework.TestCaseAttribute("abc", "Beginner", "This skill is already added your skill list", null)]
+        [NUnit.Framework.TestCaseAttribute("", "Beginner", "Please enter skill and experience level", null)]
+        [NUnit.Framework.TestCaseAttribute("abc", "", "Please enter skill and experience level", null)]
+        [NUnit.Framework.TestCaseAttribute("", "", "Please enter skill and experience level", null)]
         public virtual void AddingDetailsToSkills(string skills, string level, string message, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -118,7 +122,7 @@ namespace MarsQA_1.Feature
  testRunner.And("I click On Add New button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
-        testRunner.And(string.Format("I expect that the fields {0}, {1} displays on the page", skills, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And(string.Format("I expect that the fields {0}, {1} displays on the page", skills, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
  testRunner.And("I click On Add button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -134,11 +138,14 @@ namespace MarsQA_1.Feature
         [NUnit.Framework.DescriptionAttribute("Updating profile Skills details")]
         [NUnit.Framework.TestCaseAttribute("abcd", "Intermediate", "abcd has been updated to your skills", null)]
         [NUnit.Framework.TestCaseAttribute("abcd", "Intermediate", "This skill is already added your skill list", null)]
+        [NUnit.Framework.TestCaseAttribute("", "Intermediate", "Please enter skill and experience level", null)]
+        [NUnit.Framework.TestCaseAttribute("abcd", "", "Please enter skill and experience level", null)]
+        [NUnit.Framework.TestCaseAttribute("", "", "Please enter skill and experience level", null)]
         public virtual void UpdatingProfileSkillsDetails(string skills, string level, string message, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Updating profile Skills details", null, exampleTags);
-#line 20
+#line 24
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -158,22 +165,22 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 21
+#line 25
     testRunner.Given("I am on Home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 22
+#line 26
  testRunner.When(string.Format("I select {0}", skills), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 23
+#line 27
  testRunner.And("I click On Edit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 24
-        testRunner.And(string.Format("I expect that the fields {0}, {1} displays on the page", skills, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+    testRunner.And(string.Format("I expect that the fields {0}, {1} displays on the page", skills, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 25
+#line 29
  testRunner.And("I click On Update button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 26
+#line 30
  testRunner.Then(string.Format("I expect the {0} should be displyed on the screen", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -187,7 +194,7 @@ this.ScenarioInitialize(scenarioInfo);
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deleting profile Skills details", null, exampleTags);
-#line 35
+#line 41
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -207,16 +214,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 36
+#line 42
  testRunner.Given("I am on Home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 37
+#line 43
  testRunner.When("I select <Skills>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 38
+#line 44
  testRunner.And("I click on delete icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 39
+#line 45
  testRunner.Then(string.Format("I expect the {0} should be displyed on the screen", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

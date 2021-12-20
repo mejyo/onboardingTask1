@@ -21,9 +21,7 @@ namespace MarsQA_1.SpecflowPages.Pages
         IWebElement Degree => Driver.driver.FindElement(By.CssSelector("input[placeholder='Degree']"));
         IWebElement YearOfGraduation => Driver.driver.FindElement(By.CssSelector("select[name='yearOfGraduation']"));
         IWebElement AddButton => Driver.driver.FindElement(By.CssSelector("input[value='Add']"));
-        //IWebElement HasBeenAddedMessage => Driver.driver.FindElement(By.XPath("//div[@class='ns-box ns-growl ns-effect-jelly ns-type-error ns-show']"));
-
-        IWebElement successMessage => Driver.driver.FindElement(By.XPath("//div[@class='ns-box ns-growl ns-effect-jelly ns-type-success ns-show']"));
+        
 
         public void EducationButtonClick()
         {
@@ -38,8 +36,11 @@ namespace MarsQA_1.SpecflowPages.Pages
         public void EnteredGivenValuesForAdd(String universityName, String country, String title, String degree, String year)
         {
             CollegeUniversityName.SendKeys(universityName);
+            Thread.Sleep(2000);
             CountryOfCollege.SendKeys(country);
+            Thread.Sleep(2000);
             Title.SendKeys(title);
+            Thread.Sleep(2000);
             Degree.SendKeys(degree);
             YearOfGraduation.SendKeys(year);
             Thread.Sleep(2000);
@@ -51,9 +52,17 @@ namespace MarsQA_1.SpecflowPages.Pages
             Thread.Sleep(2000);
         }
 
-        public String getActualMessage()
+        public String getActualMessage(Boolean IsError)
         {
-            return successMessage.Text;
+            IWebElement message;
+            if (IsError)
+            {
+                message = Driver.driver.FindElement(By.XPath("(//div[@class='ns-box ns-growl ns-effect-jelly ns-type-error ns-show'])[1]"));
+            } else
+            {
+                message = Driver.driver.FindElement(By.XPath("//div[@class='ns-box ns-growl ns-effect-jelly ns-type-success ns-show']"));
+            }
+            return message.Text;
         }
 
         private static IWebElement EditIcon => Driver.driver.FindElement(By.CssSelector("tbody tr td:nth-child(6) span:nth-child(1) i:nth-child(1)"));
@@ -93,6 +102,7 @@ namespace MarsQA_1.SpecflowPages.Pages
 
         public void DeleteButtonClick()
         {
+            Thread.Sleep(2000);
             DeleteIcon.Click();
             Thread.Sleep(2000);
         }

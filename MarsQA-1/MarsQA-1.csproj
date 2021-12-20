@@ -163,6 +163,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Feature\Certification.feature" />
+    <None Include="Feature\Description.feature" />
     <None Include="Feature\Education.feature" />
     <None Include="Feature\Language.feature" />
     <None Include="Feature\Login.feature" />

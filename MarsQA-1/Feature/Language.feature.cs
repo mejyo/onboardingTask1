@@ -78,6 +78,10 @@ namespace MarsQA_1.Feature
         [NUnit.Framework.DescriptionAttribute("Adding details to Language")]
         [NUnit.Framework.CategoryAttribute("mytag")]
         [NUnit.Framework.TestCaseAttribute("English", "Basic", "English language has been added to your languages", null)]
+        [NUnit.Framework.TestCaseAttribute("English", "Basic", "This langauge is already added your langauge list", null)]
+        [NUnit.Framework.TestCaseAttribute("", "", "Please enter laungaue and level", null)]
+        [NUnit.Framework.TestCaseAttribute("English", "", "Please enter laungaue and level", null)]
+        [NUnit.Framework.TestCaseAttribute("", "Basic", "Please enter laungaue and level", null)]
         public virtual void AddingDetailsToLanguage(string language, string level, string message, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -118,7 +122,7 @@ namespace MarsQA_1.Feature
  testRunner.And("I click On Add New button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
-        testRunner.And(string.Format("I expect that the fields <Language>, {0} displays on the page", level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And(string.Format("I expect that the fields <Language>, {0} displays on the page", level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
  testRunner.And("I click On Add button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -134,11 +138,14 @@ namespace MarsQA_1.Feature
         [NUnit.Framework.DescriptionAttribute("Updating profile Language details")]
         [NUnit.Framework.TestCaseAttribute("abc", "Fluent", "abc language has been added to your languages", null)]
         [NUnit.Framework.TestCaseAttribute("abc", "Fluent", "This langauge is already added your langauge list", null)]
+        [NUnit.Framework.TestCaseAttribute("abc", "", "Please enter laungaue and level", null)]
+        [NUnit.Framework.TestCaseAttribute("", "Fluent", "Please enter laungaue and level", null)]
+        [NUnit.Framework.TestCaseAttribute("", "", "Please enter laungaue and level", null)]
         public virtual void UpdatingProfileLanguageDetails(string language, string level, string message, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Updating profile Language details", null, exampleTags);
-#line 20
+#line 24
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -158,22 +165,22 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 21
+#line 25
     testRunner.Given("I am on Home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 22
- testRunner.When("I select <Certification>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 26
+ testRunner.When("I select <Language>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 23
+#line 27
  testRunner.And("I click On Edit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 24
-        testRunner.And(string.Format("I expect that the fields <Language>, {0} displays on the page", level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+    testRunner.And(string.Format("I expect that the fields <Language>, {0} displays on the page", level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 25
+#line 29
  testRunner.And("I click On Update button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 26
+#line 30
  testRunner.Then(string.Format("I expect the {0} should be displyed on the screen", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -187,7 +194,7 @@ this.ScenarioInitialize(scenarioInfo);
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deleting profile Language details", null, exampleTags);
-#line 35
+#line 42
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -207,16 +214,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 36
+#line 43
  testRunner.Given("I am on Home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 37
+#line 44
  testRunner.When("I select <Language>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 38
+#line 45
  testRunner.And("I click on delete icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 39
+#line 46
  testRunner.Then(string.Format("I expect the {0} should be displyed on the screen", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

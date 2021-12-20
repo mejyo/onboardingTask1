@@ -75,10 +75,14 @@ namespace MarsQA_1.Feature
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("1Adding details to education")]
+        [NUnit.Framework.DescriptionAttribute("Adding details to education")]
         [NUnit.Framework.CategoryAttribute("mytag")]
         [NUnit.Framework.TestCaseAttribute("Education", "RMIT", "Canada", "B.A", "abc", "2021", "Education has been added", null)]
-        public virtual void _1AddingDetailsToEducation(string education, string universityName, string country, string title, string degree, string year, string message, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Education", "", "Canada", "B.A", "abc", "2021", "Please enter all the fields", null)]
+        [NUnit.Framework.TestCaseAttribute("Education", "RMIT", "", "B.A", "abc", "2021", "Please enter all the fields", null)]
+        [NUnit.Framework.TestCaseAttribute("Education", "RMIT", "Canada", "", "", "2021", "Please enter all the fields", null)]
+        [NUnit.Framework.TestCaseAttribute("Education", "RMIT", "Canada", "", "abc", "", "Please enter all the fields", null)]
+        public virtual void AddingDetailsToEducation(string education, string universityName, string country, string title, string degree, string year, string message, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "mytag"};
@@ -87,7 +91,7 @@ namespace MarsQA_1.Feature
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             string[] tagsOfScenario = @__tags;
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1Adding details to education", null, @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adding details to education", null, @__tags);
 #line 8
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -131,13 +135,13 @@ namespace MarsQA_1.Feature
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("2Updating profile education details")]
-        [NUnit.Framework.TestCaseAttribute("Education", "CMRIT", "India", "M.A", "abc", "2020", "Education as been updated", null)]
-        public virtual void _2UpdatingProfileEducationDetails(string education, string universityName, string country, string title, string degree, string year, string message, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Being Updated profile education details")]
+        [NUnit.Framework.TestCaseAttribute("Education", "CMRIT", "India", "M.A", "abcd", "2020", "Education as been updated", null)]
+        public virtual void BeingUpdatedProfileEducationDetails(string education, string universityName, string country, string title, string degree, string year, string message, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2Updating profile education details", null, exampleTags);
-#line 21
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Being Updated profile education details", null, exampleTags);
+#line 25
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -157,22 +161,22 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 22
+#line 26
     testRunner.Given("I am on Home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 23
+#line 27
  testRunner.When(string.Format("I select {0}", education), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 24
+#line 28
  testRunner.And("I click On Edit Icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 25
+#line 29
     testRunner.And(string.Format("I updated all given values {0}, {1}, {2}, {3}, {4}", universityName, country, title, degree, year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 26
+#line 30
  testRunner.And("I click On Update button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 27
+#line 31
  testRunner.Then(string.Format("I expect the {0} should be displyed on the screen", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -180,13 +184,13 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("3Deleting profile education details")]
+        [NUnit.Framework.DescriptionAttribute("Deleting profile education details")]
         [NUnit.Framework.TestCaseAttribute("Education", "Education entry successfully removed", null)]
-        public virtual void _3DeletingProfileEducationDetails(string education, string message, string[] exampleTags)
+        public virtual void DeletingProfileEducationDetails(string education, string message, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3Deleting profile education details", null, exampleTags);
-#line 34
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deleting profile education details", null, exampleTags);
+#line 38
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -206,16 +210,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 35
+#line 39
  testRunner.Given("I am on Home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 36
+#line 40
  testRunner.When(string.Format("I select {0}", education), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 37
+#line 41
  testRunner.And("I click on Delete icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 38
+#line 42
  testRunner.Then(string.Format("I expect the {0} should be displyed on the screen", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
