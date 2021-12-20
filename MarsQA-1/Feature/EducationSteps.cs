@@ -32,19 +32,14 @@ namespace MarsQA_1.Feature
         [When(@"I entered all given values (.*), (.*), (.*), (.*), (.*)")]
         public void WhenIEnteredAllGivenValues(String universityName, String country, String title, String degree, String year)
         {
-            
-            System.Console.Out.WriteLine("Test universityName" + universityName);
-            System.Console.Out.WriteLine("Test country" + country);
-            System.Console.Out.WriteLine("Test title" + title);
-            System.Console.Out.WriteLine("Test degree" + degree);
+          
 
             if (universityName == "" || country == "" || title == "" || degree == "" || year == "")
             {
-                System.Console.Out.WriteLine("ERROR:::");
                 allFieldsError = true;
             } else
             {
-                System.Console.Out.WriteLine("SUCCESS");
+               
                 allFieldsError = false;
             }
 
@@ -68,12 +63,11 @@ namespace MarsQA_1.Feature
         {
             if (universityName == "" || country == "" || title == "" || degree == "" || year == "")
             {
-                System.Console.Out.WriteLine("ERROR:::");
+              
                 allFieldsError = true;
             }
             else
             {
-                System.Console.Out.WriteLine("SUCCESS");
                 allFieldsError = false;
             }
             education.EnteredGivenValuesForUpdate(universityName, country, title, degree, year);
@@ -94,7 +88,6 @@ namespace MarsQA_1.Feature
         [Then(@"I expect the (.*) should be displyed on the screen")]
         public void ThenIExpectTheShouldBeDisplyedOnTheSreen(String message)
         {
-            System.Console.Out.WriteLine("allFieldsError before use:::" + allFieldsError);
             String actualMessage = education.getActualMessage(allFieldsError);
             Assert.AreEqual(message, actualMessage);
         }
